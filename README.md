@@ -1,5 +1,7 @@
 # go-xinput
 
+[![GoDoc](https://godoc.org/github.com/geistesk/go-xinput?status.svg)](https://godoc.org/github.com/geistesk/go-xinput) [![Build Status](https://travis-ci.org/geistesk/go-xinput.svg?branch=master)](https://travis-ci.org/geistesk/go-xinput)
+
 Small [Go][golang] library for limited interaction with the [X Input Device Extension Library][xorg-xinput] (`<X11/extensions/XInput.h>`).
 This allows listing input devices and listening for events, e.g., pressing keys.
 
