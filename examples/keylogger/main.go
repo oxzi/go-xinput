@@ -6,6 +6,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/signal"
 	"strconv"
 
 	"github.com/geistesk/go-xinput"
@@ -31,10 +32,26 @@ func main() {
 			continue
 		}
 
-		if eventMap, err := xinput.NewEventMap(display, device); err != nil {
+		eventMap, err := xinput.NewEventMap(display, device)
+		if err != nil {
 			fmt.Printf("Failed to create EventMap: %v\n", err)
-		} else {
-			eventMap.Print()
+			os.Exit(1)
 		}
+
+		stopChan := make(chan os.Signal, 1)
+		signal.Notify(stopChan, os.Interrupt)
+
+	loop:
+		for {
+			select {
+			case event := <-eventMap.Events():
+				fmt.Println(event)
+
+			case <-stopChan:
+				break loop
+			}
+		}
+
+		_ = eventMap.Close()
 	}
 }
