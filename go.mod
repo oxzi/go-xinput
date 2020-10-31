@@ -1,3 +1,3 @@
-module github.com/geistesk/go-xinput
+module github.com/oxzi/go-xinput
 
-go 1.14
+go 1.15

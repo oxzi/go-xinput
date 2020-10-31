@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"strconv"
 
-	"github.com/geistesk/go-xinput"
+	"github.com/oxzi/go-xinput"
 )
 
 func main() {

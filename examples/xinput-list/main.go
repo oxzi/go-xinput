@@ -5,7 +5,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/geistesk/go-xinput"
+	"github.com/oxzi/go-xinput"
 )
 
 func main() {
